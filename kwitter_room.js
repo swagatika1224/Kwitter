@@ -7,7 +7,11 @@ var firebaseConfig = {
       messagingSenderId: "491868464244",
       appId: "1:491868464244:web:2bcbd3b8a799c0c405dd21"
     };
-function addRoom() {
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    user_name=localStorage.getItem("user_name");
+    document.getElementById("user_name").innerHTML="welcome"+user_name+ "!";
+function addRoom() {;
 room_name = document.getElementById("room_name").value;
 firebase.database().ref("/").child(room_name).update({
 purpose : "adding room name"
